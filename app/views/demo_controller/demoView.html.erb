@@ -1,0 +1,19 @@
+<h1>Hello From demo view </h1>
+<div class="field">
+    <%= label_tag "Name" %>
+    <%= text_field "demo_model", "name", "size" => 20 %>
+    <br />
+    <br />
+    <%= label_tag "Email" %>
+    <%= text_field "demo_model", "email", "size" => 20 %>
+
+    <%= form_with model: @demos do |form| %>
+    <%= label_tag "Name" %>
+    <%= form.text_field :title %>
+    <br /><br />
+    <%= label_tag "Email" %>
+    <%= form.text_field :title %>
+    <%= form.submit "Create" %>
+    <% end %>
+    
+</div>

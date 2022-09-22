@@ -1,0 +1,28 @@
+<%= render partial: "layouts/errors", locals: { object: location } %>
+<%= form_for location do |f| %> 
+  <p>
+    <%= f.label :nickname, "Room Name" %>
+    <%= f.text_field :nickname %>
+  </p>
+  <p>
+    <%= f.label :street_address, "Organization" %>
+    <%= f.text_field :street_address %>
+  </p>
+  <p>
+    <%= f.label :city, "Features" %>
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state, "Zone" %> 
+    <%= f.text_field :state %> 
+  </p>
+  <p>
+    <%= f.label :zipcode, "Room Capacity" %> 
+    <%= f.text_field :zipcode %>
+  </p>
+  <p>
+    <%= f.label :business_name, "Extra Specifications:" %> 
+    <%= f.text_field :business_name %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

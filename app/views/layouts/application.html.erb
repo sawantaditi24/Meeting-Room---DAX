@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meeting Room Reservation</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body >
+
+  
+   <%= render "layouts/navbar" %>
+
+   <%= content_tag(:div, flash[:error], id: "flash_error", class: "container") if flash[:error] %> 
+  <%= content_tag(:div, flash[:notice], id: "flash_notice", class: "container") if flash[:notice] %> 
+  <%= content_tag(:div, flash[:alert], id: "flash_alert", class: "container") if flash[:alert] %>
+
+	<div class="container">
+		<% flash.each do |message_type, message| %>
+			<div id="flash" class="flash-<%= message_type %>"><%= message %></div>
+		<% end %>
+		<%= yield %>
+	</div>
+
+  <div class="main container">
+    <%= yield %>  
+  </div>
+
+  <script type="text/javascript">
+	 $('.datepicker').datepicker({
+    	 weekStart:1,
+    	 color: 'red'
+	 });
+	</script>
+
+  </body>
+</html>

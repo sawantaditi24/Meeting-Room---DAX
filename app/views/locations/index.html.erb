@@ -1,0 +1,49 @@
+<h1><i>Locations</i> <%= link_to "+ New", new_location_path %></h1>
+<div class="grid-container">
+
+
+
+
+
+
+
+ <div>The Oval
+  <h4>The most spacious meeting room that can accomodate head count of 30 people. Comes with the giant display screen and fully surrond sound system.</h4>
+  </div>
+  <div>The Wanderers
+  <h4>A meeting room that can accomodate head count of 4 people. Has a wide LED display</h4>
+  </div>
+  <div>Eden Gardens
+  <h4>Meeting room that can spaciously accomodate head count of 6 people. Gives a proper mini conference feel.</h4> 
+  </div>
+  <div>MCG
+  <h4>Meeting room that can accomodate head count of 5 people easily and is in the remote locations of organization that allows you to work silently.</h4>
+  </div>
+  <div>The Wankhede
+  <h4>This meeting room can accomodate 5 people conviniently and gives you peaceful experience. Wankhede also gives you access to the nearby meeting rooms incase, you need to divide into teams for brainstorming.</h4>
+  </div>
+  <div>Lords
+  <h4>Lords can accomodate total of 6 people easily and can take in a few more. It's spacious and has provisions of proper LED display </h4>
+  </div>
+</div>
+<% if @locations.any? %>
+<div class="row">
+  <div class="col-sm-3 hidden-xs">
+    <h3>Nickname</h3>
+  </div>
+  <div class="col-sm-3 hidden-xs">
+    <h3>Address</h3>
+  </div>
+  <div class="col-sm-3 hidden-xs">
+    <h3>Clients</h3>
+  </div>
+  <div class="col-sm-3 hidden-xs">
+    <h3>Bookings</h3>
+  </div>
+</div>
+<% else %> 
+<p>No locations yet.</p>
+<% end %>
+<div class="locations">
+  <%= render partial: "location_index", collection: @locations, as: :location %>  
+</div>

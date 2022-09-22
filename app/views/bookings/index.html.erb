@@ -1,0 +1,10 @@
+<h1>Bookings <%= link_to "+ New", new_booking_path %></h1>
+ <%= add_weekly_calendar(@bookings) %>
+
+<h3>Upcoming bookings</h3>
+<% if @upcoming_bookings.any? %>
+  <%= render @upcoming_bookings %>
+<% else %> 
+  <p>No bookings yet.</p>
+<% end %>
+

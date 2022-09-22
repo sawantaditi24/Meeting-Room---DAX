@@ -1,0 +1,32 @@
+# <%= render partial: "layouts/errors", locals: { object: booking } %>
+<%= form_for booking do |f| %>
+  <%= client_fields(f, booking, client) %>
+  <div class="field">
+    <p>
+      <%= label_tag "booking[appointment_time][date]", "Date" %>
+      <%= text_field_tag "booking[appointment_time][date]", booking_date(booking), class: "datepicker" %>
+    </p>
+  </div>
+  <div class="field">
+    <p id="time">
+      <%= label_tag "booking[appointment_time][hour]", "Time" %>
+      <%= hour_selector("booking[appointment_time][hour]", booking) %> : 
+      <%= min_selector("booking[appointment_time][min]", booking) %> 
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <%= f.label :duration %> 
+      <%= duration_hour_field("booking[duration][hour]", booking) %>
+      <%= duration_minute_field("booking[duration][min]", booking) %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <%= f.label :price,"Head Count" %> 
+      <%= f.number_field :price, step: 0.25, value: float_two_decimals(booking.price) %>
+    </p>  
+  </div>
+  <%= location_fields(f, booking, location) %>
+  <p><%= f.submit %></p>
+<% end %>
